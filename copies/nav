@@ -1,0 +1,118 @@
+import { NotificationsOutlined, PersonOutlineOutlined, Search, VideoCallOutlined, YouTube } from '@mui/icons-material'
+import Link from 'next/link';
+
+export default function Navbar() {
+
+    return (
+        <nav className='h-[7dvh] px-5 flex justify-between items-center'>
+            <Link href={'/'}>
+                <div className='flex text-red-600 items-center'>
+                    <YouTube fontSize='large' />
+                    <h3 className='text-black text-[22px]'>YouTube</h3>
+                </div>
+            </Link>
+            <form className='w-[600px] border border-black rounded-[100px] pl-5 h-[50px] flex'>
+                <input type="text" placeholder='Search' className='outline-none h-full w-full' />
+                <button className='w-[100px] border border-l-black rounded-r-[100px] hover:bg-black hover:text-white'>
+                    <Search />
+                </button>
+            </form>
+            <div className='flex gap-5 items-center'>
+                <VideoCallOutlined fontSize='large' className='cursor-pointer' />
+                <NotificationsOutlined fontSize='large' className='cursor-pointer' />
+                {/* Mashitga qoshish kere */}
+            </div>
+        </nav>
+    )
+}
+
+{/* <PersonOutlineOutlined fontSize='large' className='cursor-pointer' /> */ }
+<!-- 
+// import { useState, useEffect } from "react";
+// import { auth, signInWithGoogle, logOut } from "../../../firebase";
+// import { NotificationsOutlined, PersonOutlineOutlined, Search, VideoCallOutlined, YouTube } from "@mui/icons-material";
+// import Link from "next/link";
+
+// export default function Navbar() {
+//     const [user, setUser] = useState(null);
+//     const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+
+//     useEffect(() => {
+//         const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+//             setUser(currentUser);
+//         });
+//         return () => unsubscribe();
+//     }, []);
+
+//     return (
+//         <nav className="h-[7dvh] px-5 flex justify-between items-center relative">
+//             {/* Logo */}
+//             <Link href={"/"}>
+//                 <div className="flex text-red-600 items-center cursor-pointer">
+//                     <YouTube fontSize="large" />
+//                     <h3 className="text-black text-[22px]">YouTube</h3>
+//                 </div>
+//             </Link>
+
+//             {/* Search Bar */}
+//             <form className="w-[600px] border border-black rounded-[100px] pl-5 h-[50px] flex">
+//                 <input type="text" placeholder="Search" className="outline-none h-full w-full" />
+//                 <button className="w-[100px] border border-l-black rounded-r-[100px] hover:bg-black hover:text-white">
+//                     <Search />
+//                 </button>
+//             </form>
+
+//             {/* Right Side Icons & Auth */}
+//             <div className="flex gap-5 items-center">
+//                 <VideoCallOutlined fontSize="large" className="cursor-pointer" />
+//                 <NotificationsOutlined fontSize="large" className="cursor-pointer" />
+
+//                 {user ? (
+//                     <div className="relative">
+//                         <img
+//                             src={user.photoURL || <PersonOutlineOutlined />} // Agar photoURL bo'lmasa, default rasm chiqadi
+//                             alt="User Avatar"
+//                             className="w-10 h-10 rounded-full cursor-pointer"
+//                             onClick={() => setIsLogoutModalOpen(true)}
+//                         />
+
+//                         {/* Logout Modal */}
+//                         {isLogoutModalOpen && (
+//                             <div
+//                                 className="absolute top-12 right-0 bg-white shadow-md rounded-md p-3 min-w-[150px] border"
+//                                 onClick={(e) => e.stopPropagation()} // Modal bosilganda yopilmasligi uchun
+//                             >
+//                                 <p className="text-center text-gray-700">{user.displayName}</p>
+//                                 <p className="text-center text-gray-700">{user.email}</p>
+//                                 <button
+//                                     onClick={() => {
+//                                         logOut();
+//                                         setIsLogoutModalOpen(false);
+//                                     }}
+//                                     className="mt-2 w-full bg-red-500 hover:bg-red-700 text-white py-2 rounded-md cursor-pointer"
+//                                 >
+//                                     Log Out
+//                                 </button>
+//                             </div>
+//                         )}
+//                     </div>
+//                 ) : (
+//                     <button onClick={signInWithGoogle} className="bg-blue-500 px-4 py-2 text-white rounded">
+//                         Sign In
+//                     </button>
+//                 )}
+//             </div>
+
+//             {/* Modalni tashqi joy bosganda yopish */}
+//             {isLogoutModalOpen && (
+//                 <div
+//                     className="fixed inset-0"
+//                     onClick={() => setIsLogoutModalOpen(false)}
+//                 />
+//             )}
+//         </nav>
+//     );
+// }
+
+
+// "use client"; -->

@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDA18LqSjNi9ZUCqRkU17bDvEdd9DwflTk",
@@ -13,3 +14,28 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+// Firebase ni ishga tushiramiz
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+// Google bilan kirish funksiyasi
+const signInWithGoogle = async () => {
+    try {
+        const result = await signInWithPopup(auth, provider);
+        console.log(result.user);
+    } catch (error) {
+        console.error("Google login error:", error);
+    }
+};
+
+// Chiqish funksiyasi
+const logOut = async () => {
+    try {
+        await signOut(auth);
+        console.log("Logged out");
+    } catch (error) {
+        console.error("Logout error:", error);
+    }
+};
+
+export { auth, signInWithGoogle, logOut };
