@@ -25,7 +25,7 @@ const Comments = ({ videoId }) => {
 
         const newCommentData = {
             videoId,
-            username: "User", // Bu joyga auth bilan haqiqiy user keladi
+            username: "User", 
             text: newComment,
             timestamp: serverTimestamp()
         };
